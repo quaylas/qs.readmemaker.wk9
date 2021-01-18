@@ -2,15 +2,16 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const { time } = require('console');
 
 // initialize questions array for user input
 const questions = [
     {
         type: 'input',
-        name: 'projectName',
+        name: 'appName',
         message: 'Enter the name of your application (required)',
-        validate: projectNameInput => {
-            if(projectNameInput) {
+        validate: appNameInput => {
+            if(appNameInput) {
                 return true;
             } else {
                 console.log('You must enter a name for your application!');
@@ -21,10 +22,10 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projectDescription',
-        message: 'Enter a description of this project (required)',
-        validate: projectDescriptionInput => {
-            if(projectDescriptionInput){
+        name: 'appDescription',
+        message: 'Enter a description of your application (required)',
+        validate: appDescriptionInput => {
+            if(appDescriptionInput){
                 return true;
             } else{
                 console.log('Come on, tell us what the application is for!');
@@ -33,11 +34,37 @@ const questions = [
         }
     },
     {
+        type: 'confirm',
+        name: 'appLive',
+        message: 'Is the application deployed via GitHub Pages? If yes, you will be required to provide a link to the application.',
+        default: true
+    },
+    {
         type: 'input',
-        name: 'projectInstallation',
+        name: 'appLink',
+        message: 'Please provide the link to the deployed application (required)',
+        when: ({appLive}) => {
+            if (appLive){
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: appLink => {
+            if (appLink) {
+                return true;
+            } else {
+                console.log('Seriously, if you don\'t give us the link we will just go pull it from your profile and we will be mad the WHOLE time');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'appInstallation',
         message: 'Please provide installation instructions (required)',
-        validate: projectInstallationInput => {
-            if(projectInstallationInput){
+        validate: appInstallationInput => {
+            if(appInstallationInput){
                 return true;
             } else{
                 console.log('If we can\'t install it, we can\'t use it. Help us out here.');
@@ -47,47 +74,47 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projectUsage',
+        name: 'appUsage',
         message: 'Please provide usage guidelines', 
         default: ''
     },
     {
         type: 'input',
-        name: 'projectContributions',
+        name: 'appContributions',
         message: 'Please provide contribution guidelines', 
         default: 'The Contributor Covenant'
     },
     {
         type: 'input',
-        name: 'projectTests',
+        name: 'appTests',
         message: 'Please enter any recommmended application tests', 
-        default: 'There are currently no tests available for this project.'
+        default: 'There are currently no tests available for this application.'
     },
     {
         type: 'list',
-        name: 'projectLicense',
+        name: 'appLicense',
         message: 'Select the appropriate license for this application. See https://choosealicense.com/ for information about selecting a license',
         choices: ['Apache License 2.0','BSD 3-Clause "New" or "Revised" license','GNU GPLv3 License','ISC License','MIT License','Mozilla Public License 2.0']
     },
     {
         type: 'input',
-        name: 'projectUsername',
+        name: 'appUsername',
         message: 'What\'s your GitHub username? (required)',
-        validate: projectUsernameInput => {
-            if (projectUsernameInput){
+        validate: appUsernameInput => {
+            if (appUsernameInput){
                 return true;
             } else {
-                console.log('Come on, don\'t be shy! We want to know who made this awesome project!');
+                console.log('Come on, don\'t be shy! We want to know who made this awesome app!');
                 return false;
             }
         }
     },
     {
         type: 'input',
-        name: 'projectEmail',
+        name: 'appEmail',
         message: 'Enter your email address (required)',
-        validate: projectEmailInput => {
-            if (projectEmailInput) {
+        validate: appEmailInput => {
+            if (appEmailInput) {
                 return true;
             } else {
                 console.log('Just put in an email address. We promise not to sell it to anyone.');
@@ -97,7 +124,7 @@ const questions = [
     },
     {
         type:'input',
-        name: 'projectFileName',
+        name: 'appFileName',
         message: 'What would you like to name your readme file? (".md" will be appended to your entry)',
         default: 'README'
     }

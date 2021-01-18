@@ -61,17 +61,30 @@ const renderContributions = contributions => {
   }
 };
 
+// function to render a link to the deployed application
+const  renderDeployedAppLink = (appLive, appLink) => {
+  // if the app isn't live, render an empty string
+  if (!appLive) {
+    return ``
+  } else {
+    return `The application is deployed live [here](${appLink})`
+  }
+};
+
 // function to generate file name and markdown from user inputs
 const generateMarkdown = data => {
-  let fileName = data.projectFileName.split(' ').join('') + '.md';
+  let fileName = data.appFileName.split(' ').join('') + '.md';
 
-  let generatedMarkdown = `# ${data.projectName}
+  let generatedMarkdown = `# ${data.appName}
 
   ## Description
 
-  ${renderLicenseBadge(data.projectLicense)}
+  ${renderLicenseBadge(data.appLicense)}
 
-  ${data.projectDescription}
+  ${data.appDescription}
+
+  
+  ${renderDeployedAppLink(data.appLive, data.appLink)}
 
   ## Table of Contents
 
@@ -83,26 +96,26 @@ const generateMarkdown = data => {
 
   ## Installation
 
-  ${data.projectInstallation}
+  ${data.appInstallation}
 
   ## Usage
 
-  ${data.projectUsage}
+  ${data.appUsage}
 
   ## Contributions
 
-  ${renderContributions(data.projectContributions)}
+  ${renderContributions(data.appContributions)}
 
   ## Tests
 
-  ${data.projectTests}
+  ${data.appTests}
 
   ## Questions
 
-  This project was developed by [${data.projectUsername}](https://github.com/${data.projectUsername}). 
-  Questions may be directed to [${data.projectEmail}](mailto:${data.projectEmail}).
+  This project was developed by [${data.appUsername}](https://github.com/${data.appUsername}). 
+  Questions may be directed to [${data.appEmail}](mailto:${data.appEmail}).
 
-  ${renderLicenseSection(data.projectLicense)}
+  ${renderLicenseSection(data.appLicense)}
 
 `;
 return {fileName, generatedMarkdown}
