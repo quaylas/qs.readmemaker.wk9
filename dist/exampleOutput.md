@@ -5,9 +5,7 @@
   [![License: MIT](https://img.shields.io/badge/license-MIT-0d0042)](https://opensource.org/licenses/MIT)
 
   brief description
-
   
-  The application is deployed live [here](https://github.com/quaylas/qs.readmemaker.wk9)
 
   ## Table of Contents
 
@@ -19,11 +17,11 @@
 
   ## Installation
 
-  download and install node, clone this repository and install dependencies using...
+  download and install Node.js, clone this repository and install dependencies using "npm install"
 
   ## Usage
 
-  initialize using node index.js
+  initialize from the root directory using "node index.js"
 
   ## Contributions
 

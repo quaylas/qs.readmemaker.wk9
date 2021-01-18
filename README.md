@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-0d0042)](https://opensource.org/licenses/MIT)
 
-A simple command line application using Node.js to generate a polished README.md file based on user inputs. Users are prompted for appropriate details via the Inquirer module and a markdown file is written to the 'dist' folder.
+A simple command line application using Node.js to generate a polished README.md file based on user inputs. Users are prompted for appropriate details via the Inquirer module and a markdown file is written to the 'dist' folder, which contains an exampleOutput.md file for reference.
 
 Table of Contents
 * [User Story and Acceptance Criteria](#user-story-and-acceptance-criteria)
@@ -105,4 +105,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 ---
 ## Visuals
 
-You can view a 3-minute demo of this application [here](https://drive.google.com/file/d/1GDTmYBXHrjHbyCPfyn5ocqPdAeQfYSHK/view).
+You can view a demo of this application [here](https://drive.google.com/file/d/1GDTmYBXHrjHbyCPfyn5ocqPdAeQfYSHK/view).
