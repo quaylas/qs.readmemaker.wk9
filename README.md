@@ -100,7 +100,7 @@ Questions may be directed to [quayla@cxadvisors.com](mailto:quayla@cxadvisors.co
 
 ## License
 
-This project is licensed under the [${license}](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
 ## Visuals
