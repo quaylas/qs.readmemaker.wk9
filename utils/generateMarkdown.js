@@ -24,15 +24,17 @@ const renderLicenseLink = license => {
   if(!license){
     return '';
   } else if (license === 'Apache License 2.0'){
-    return '[${license}](https://opensource.org/licenses/Apache-2.0)'
+    return `This application is licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === 'BSD 3-Clause "New" or "Revised" license') {
-    return '[${license}](https://opensource.org/licenses/BSD-3-Clause)'
+    return `This application is licensed under the [BSD 3-Clause "New" or "Revised" license](https://opensource.org/licenses/BSD-3-Clause)`
   } else if (license === 'GNU GPLv3 License'){
-    return '[${license}](https://www.gnu.org/licenses/gpl-3.0)'
+    return `This application is licensed under the [GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0)`
   } else if (license === 'ISC License') {
-    return '[${license}](https://opensource.org/licenses/ISC)'
+    return `This application is licensed under the [ISC License](https://opensource.org/licenses/ISC)`
   } else if (license === 'MIT License') {
-    return '[${license}](https://opensource.org/licenses/MIT)'
+    return `This application is licensed under the [MIT License](https://opensource.org/licenses/MIT)`
+  }else if (license === 'Mozilla Public License 2.0') {
+    return `This application is licensed under the [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
   }
 };
 
@@ -44,7 +46,7 @@ const renderLicenseSection = license => {
   }
   return `## License
 
-    This project is licensed under the ${renderLicenseLink(license)}.
+  ${renderLicenseLink(license)}.
   `
 };
 
