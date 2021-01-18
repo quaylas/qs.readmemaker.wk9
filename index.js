@@ -67,8 +67,7 @@ const questions = [
         type: 'list',
         name: 'projectLicense',
         message: 'Select the appropriate license for this application. See https://choosealicense.com/ for information about selecting a license',
-        choices: ['Apache License 2.0','BSD 3-Clause "New" or "Revised" license','GNU GPLv3 License','ISC License','MIT License','Mozilla Public License 2.0'],
-        default: 'MIT License'
+        choices: ['Apache License 2.0','BSD 3-Clause "New" or "Revised" license','GNU GPLv3 License','ISC License','MIT License','Mozilla Public License 2.0']
     },
     {
         type: 'input',
