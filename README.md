@@ -105,4 +105,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 ---
 ## Visuals
 
-You can view a 3-minute demo of this application [here](https://drive.google.com/file/d/1OLw9nNX_KguqJiIvqj6LxUFVJvjWQ7D-/view).
+You can view a 3-minute demo of this application [here](https://drive.google.com/file/d/1GDTmYBXHrjHbyCPfyn5ocqPdAeQfYSHK/view).
